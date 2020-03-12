@@ -2,7 +2,7 @@
 using MazeGen.Util;
 using UnityEngine;
 
-public class MazeSpawn : MonoBehaviour
+public class   MazeSpawn : MonoBehaviour
 {
 
     public GameObject CellPrefab;

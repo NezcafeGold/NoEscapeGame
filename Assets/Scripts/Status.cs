@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Status : MonoBehaviour
 {
     private static Image _madness;
+    [SerializeField]
+    private GameObject bomb;
     
     [SerializeField]
     private Text _text;

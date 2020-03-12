@@ -35,7 +35,12 @@ public abstract class Character : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+       // transform.Translate(direction * speed * Time.deltaTime);
+
+        float moveHorizontal = direction.x;
+        float moveVertical = direction.y;
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        rbody.velocity = movement * speed;
         AnimatePlayer(direction);
     }
 
@@ -43,6 +48,5 @@ public abstract class Character : MonoBehaviour
     {
         animator.SetFloat("x", direction.x);
         animator.SetFloat("y", direction.y);
-        print(direction.x);
     }
 }

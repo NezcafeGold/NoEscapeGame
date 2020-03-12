@@ -51,6 +51,7 @@ public class MazeGeneratorNew
 
     private void PlaceTreasures(CellObj[,] maze)
     {
+        maze[0, 0].Treasure = true;
         for (int x = 0; x < maze.GetLength(0); x++)
         {
             for (int y = 0; y < maze.GetLength(1); y++)
