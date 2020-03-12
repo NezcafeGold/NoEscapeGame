@@ -9,6 +9,9 @@ public class Player : Character
     [SerializeField]
     private Status madness;
 
+    [SerializeField] 
+    private BombScript BombScript;
+
   
     // Start is called before the first frame update
     protected override void Start()
@@ -63,4 +66,9 @@ public class Player : Character
         }
        
     }
+
+    public void ThrowBomb()
+    {
+        BombScript.Throw(rbody.transform.position.x, rbody.transform.position.y);
+      }
 }

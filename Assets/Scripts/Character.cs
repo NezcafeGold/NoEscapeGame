@@ -9,7 +9,7 @@ public abstract class Character : MonoBehaviour
     
     protected Vector2 direction;
 
-    private Rigidbody2D rbody;
+    protected Rigidbody2D rbody;
     
     // Start is called before the first frame update
      protected virtual void Start()
