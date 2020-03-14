@@ -41,19 +41,19 @@ public class Status : MonoBehaviour
     void Start()
 
     {
-        if (_madness == null)
-            _madness = GetComponent<Image>();
+//        if (_madness == null)
+//            _madness = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((int) _currentMadness != 0)
-            _madness.fillAmount = _currentMadness / _maxMadness;
-        else
-        {
-            _madness.fillAmount = 0;
-            _text.enabled = true;
-        }
+//        if ((int) _currentMadness != 0)
+//            _madness.fillAmount = _currentMadness / _maxMadness;
+//        else
+//        {
+//            _madness.fillAmount = 0;
+//            _text.enabled = true;
+//        }
     }
 }

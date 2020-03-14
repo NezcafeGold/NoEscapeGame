@@ -6,13 +6,14 @@ public class   MazeSpawn : MonoBehaviour
 {
 
     public GameObject CellPrefab;
+    [SerializeField] private GameController gC;
     
     // Start is called before the first frame update
     void Start()
     {
         var bounds = CellPrefab.GetComponent<SpriteRenderer>().bounds;
         var size = Mathf.Abs(bounds.max.x - bounds.min.x);
-        MazeGeneratorNew generator = new MazeGeneratorNew();
+        MazeGenerator generator = new MazeGenerator(gC.XSize, gC.YSize, gC.ChangeOfTreasure);
         CellObj[,] maze = generator.GenerateMaze();
         
         for(int x = 0; x<maze.GetLength(0); x++)

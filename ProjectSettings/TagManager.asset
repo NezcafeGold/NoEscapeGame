@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Treasure
+  - Wall
   layers:
   - Default
   - TransparentFX

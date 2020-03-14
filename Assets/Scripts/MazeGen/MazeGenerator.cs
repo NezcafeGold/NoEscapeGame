@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class CellObj
@@ -15,11 +16,18 @@ public class CellObj
     public bool Treasure = false;
 }
 
-public class MazeGeneratorNew
+public class MazeGenerator
 {
-    public int Width = 10;
-    public int Height = 10;
-    public int ChangeOfTreasure = 10;
+    private int Width;
+    private int Height;
+    private int ChangeOfTreasure;
+
+    public MazeGenerator(int width, int height, int changeOfTreasure)
+    {
+        Width = width;
+        Height = height;
+        ChangeOfTreasure = changeOfTreasure;
+    }
 
     public CellObj[,] GenerateMaze()
     {

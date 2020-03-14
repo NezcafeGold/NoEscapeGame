@@ -3,7 +3,8 @@
 public abstract class Character : MonoBehaviour
 {
     
-    [SerializeField] private float speed;
+    private float speed;
+    [SerializeField] private GameController gC;
     
     private Animator animator;
     
@@ -16,6 +17,7 @@ public abstract class Character : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
+        speed = gC.Speed;
 
     }
 

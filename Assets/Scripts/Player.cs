@@ -6,9 +6,6 @@ using UnityEngine;
 public class Player : Character
 {
 
-    [SerializeField]
-    private Status madness;
-
     [SerializeField] 
     private BombScript BombScript;
 
@@ -17,9 +14,6 @@ public class Player : Character
     protected override void Start()
     {
         base.Start();
-        madness.MaxMadness = 100;
-        madness.CurrentMadness = 100;
-
 
     }
 
@@ -27,15 +21,9 @@ public class Player : Character
     protected override void Update()
     {
         base.Update();
-        GetInput();
-        ChangeMadness();
-        
+        GetInput();      
     }
 
-    private void ChangeMadness()
-    {
-        madness.CurrentMadness -=0.1f;
-    }
     
     private void GetInput()
     {
@@ -60,11 +48,6 @@ public class Player : Character
             direction += Vector2.left;
         }
         
-        if (Input.GetKey(KeyCode.K))
-        {
-            madness.CurrentMadness +=0.2f;
-        }
-       
     }
 
     public void ThrowBomb()
