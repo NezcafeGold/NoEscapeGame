@@ -7,13 +7,20 @@ public class   MazeSpawn : MonoBehaviour
 
     public GameObject CellPrefab;
     [SerializeField] private GameController gC;
+    private float size;
+
+    void Awake()
+    {
+        var bounds = CellPrefab.GetComponent<SpriteRenderer>().bounds;
+        size = Mathf.Abs(bounds.max.x - bounds.min.x);
+        gC.SizeOfCeil = size;
+    }
     
     // Start is called before the first frame update
     void Start()
     {
-        var bounds = CellPrefab.GetComponent<SpriteRenderer>().bounds;
-        var size = Mathf.Abs(bounds.max.x - bounds.min.x);
-        MazeGenerator generator = new MazeGenerator(gC.XSize, gC.YSize, gC.ChangeOfTreasure);
+        
+      MazeGenerator generator = new MazeGenerator(gC.XSize, gC.YSize, gC.ChangeOfTreasure);
         CellObj[,] maze = generator.GenerateMaze();
         
         for(int x = 0; x<maze.GetLength(0); x++)
@@ -37,4 +44,6 @@ public class   MazeSpawn : MonoBehaviour
     {
         
     }
+
+    public float Size => size;
 }

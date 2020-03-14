@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _Ysize;
     [SerializeField] private int _ChangeOfTreasure;
     [SerializeField] private int _Speed;
+    private float sizeOfCeil;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,12 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public float SizeOfCeil
+    {
+        get => sizeOfCeil;
+        set => sizeOfCeil = value;
     }
 
     public int XSize
@@ -42,4 +50,5 @@ public class GameController : MonoBehaviour
         get => _Speed;
         set => _Speed = value;
     }
+
 }

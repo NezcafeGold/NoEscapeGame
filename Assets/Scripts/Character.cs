@@ -5,7 +5,7 @@ public abstract class Character : MonoBehaviour
     
     private float speed;
     [SerializeField] private GameController gC;
-    
+        
     private Animator animator;
     
     protected Vector2 direction;
@@ -18,7 +18,7 @@ public abstract class Character : MonoBehaviour
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         speed = gC.Speed;
-
+        transform.position =  new Vector3(Mathf.Ceil(gC.XSize/2*gC.SizeOfCeil), Mathf.Ceil(gC.YSize/2*gC.SizeOfCeil), 0);
     }
 
     // Update is called once per frame

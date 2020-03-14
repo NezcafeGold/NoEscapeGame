@@ -115,6 +115,13 @@ public class MazeGenerator
 
     private void RemoveRandomWalls(CellObj[,] maze)
     {
+        for (int i = 0; i < Width; i++)
+        {
+            if(Random.Range(0,1)==1)
+            maze[Random.Range(1, Width - 1), Random.Range(1, Height - 1)].WallLeft = false;
+            else
+            maze[Random.Range(1, Width - 1), Random.Range(1, Height - 1)].WallBottom = false;
+        }
     }
 
     private void RemoveWall(CellObj current, CellObj chosen)
