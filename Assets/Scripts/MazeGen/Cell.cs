@@ -6,7 +6,10 @@ namespace MazeGen
     {
         public GameObject WallLeft;
         public GameObject WallBottom;
+        public GameObject wallLeftBorder;
+        public GameObject wallBottomBorder;
         public GameObject Floor;
         public GameObject Treasure;
+        public GameObject ExitPortal;
     }
 }
