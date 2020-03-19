@@ -22,9 +22,9 @@ public class CellObj
 
 public class MazeGenerator
 {
-    private int Width;
-    private int Height;
-    private int ChangeOfTreasure;
+    private readonly int Width;
+    private readonly int Height;
+    private readonly int ChangeOfTreasure;
     
 
     public MazeGenerator(int width, int height, int changeOfTreasure)
@@ -82,7 +82,7 @@ public class MazeGenerator
     private void PlaceExit(CellObj[,] maze)
     {
         //TODO: check if exit with other objects
-        var dir = Random.Range(3, 3);
+        var dir = Random.Range(0, 3);
         switch (dir)
         {
             case 0:
