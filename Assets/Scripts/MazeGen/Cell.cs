@@ -11,5 +11,8 @@ namespace MazeGen
         public GameObject Floor;
         public GameObject Treasure;
         public GameObject ExitPortal;
+        public GameObject Coin;
+        public GameObject[] CoinsArray;
+        public GameObject CoinField;
     }
 }

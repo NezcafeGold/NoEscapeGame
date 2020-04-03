@@ -9,6 +9,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private int _Ysize;
     [SerializeField] private int _ChangeOfTreasure;
     [SerializeField] private int _Speed;
+    [SerializeField] private int _MaxCoins;
+    [SerializeField] private int _ChangeOfCoins;
     private float sizeOfCeil;
 
 
@@ -51,4 +53,13 @@ public class GameController : MonoBehaviour
         set => _Speed = value;
     }
 
+    public int MaxCoins
+    {
+        get => _MaxCoins;
+    }
+
+    public int ChangeOfCoins
+    {
+        get => _ChangeOfCoins;
+    }
 }

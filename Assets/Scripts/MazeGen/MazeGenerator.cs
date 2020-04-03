@@ -14,10 +14,10 @@ public class CellObj
     public bool Floor = true;
     public bool Visited = false;
     public bool Treasure = false;
-    public bool Coin = false;
     public bool WallLeftBorder = false;
     public bool WallBottomBorder = false;
     public bool Exit = false;
+    public int CoinCount = 0;
 }
 
 public class MazeGenerator
@@ -25,13 +25,17 @@ public class MazeGenerator
     private readonly int Width;
     private readonly int Height;
     private readonly int ChangeOfTreasure;
-    
+    private readonly int ChangeOfCoin;
+    private readonly int MaxCoinsForField;
 
-    public MazeGenerator(int width, int height, int changeOfTreasure)
+
+    public MazeGenerator(int width, int height, int changeOfTreasure, int maxCoinsForField, int changeOfCoin)
     {
         Width = width;
         Height = height;
         ChangeOfTreasure = changeOfTreasure;
+        MaxCoinsForField = maxCoinsForField;
+        ChangeOfCoin = changeOfCoin;
     }
 
     public CellObj[,] GenerateMaze()
@@ -68,7 +72,6 @@ public class MazeGenerator
                 {
                     maze[x, y].WallBottomBorder = true;
                     maze[x, y].WallBottom = false;
-
                 }
             }
         }
@@ -107,13 +110,32 @@ public class MazeGenerator
          */
         //maze[0, 0].Treasure = true;
 
+        /**
+         * Add Treasure
+         */
         for (int x = 0; x < maze.GetLength(0); x++)
         {
             for (int y = 0; y < maze.GetLength(1); y++)
             {
                 maze[x, y].Treasure = isNeedTreasure(maze, x, y);
+                if (maze[x, y].Treasure == false)
+                    maze[x, y].CoinCount = getCoinCount();
             }
         }
+    }
+
+    private int getCoinCount()
+    {
+        int coinCount = 0;
+        for (int i = 0; i < MaxCoinsForField; i++)
+        {
+            int change = Random.Range(0, 100);
+            if (change < ChangeOfCoin)
+            {
+                coinCount++;
+            }
+        }
+        return coinCount;
     }
 
     private bool isNeedTreasure(CellObj[,] maze, int x, int y)
@@ -131,9 +153,10 @@ public class MazeGenerator
         {
             return true;
         }
+
         return false;
     }
-    
+
 
     private void RemoveWalls(CellObj[,] maze)
     {
@@ -169,12 +192,12 @@ public class MazeGenerator
 
     private void RemoveRandomWalls(CellObj[,] maze)
     {
-        for (int i = 0; i < Width/2; i++)
+        for (int i = 0; i < Width / 2; i++)
         {
-            if(Random.Range(0,1)==1)
-            maze[Random.Range(1, Width - 1), Random.Range(1, Height - 1)].WallLeft = false;
+            if (Random.Range(0, 1) == 1)
+                maze[Random.Range(1, Width - 1), Random.Range(1, Height - 1)].WallLeft = false;
             else
-            maze[Random.Range(1, Width - 1), Random.Range(1, Height - 1)].WallBottom = false;
+                maze[Random.Range(1, Width - 1), Random.Range(1, Height - 1)].WallBottom = false;
         }
     }
 
