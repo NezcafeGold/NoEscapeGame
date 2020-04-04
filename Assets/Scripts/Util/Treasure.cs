@@ -13,6 +13,8 @@ namespace MazeGen.Util
         private void Start()
         {
             _camera = Camera.main;
+            //TODO УДАЛИТЬ
+           // _UI._Bomb.SetActive(true);
         }
 
         void Update()

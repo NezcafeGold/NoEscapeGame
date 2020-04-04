@@ -57,12 +57,44 @@ public class BombScript : MonoBehaviour
         }
     }
 
-    public void Throw(float positionX, float positionY)
+    public void Throw(float positionX, float positionY, Vector2 direction)
     {
+        var nearPlayer = 0.5f;
+        Vector2 placeToReach = new Vector2(positionX, positionY);
+        if (direction.Equals(Vector2.up))
+        {
+            positionY += nearPlayer;
+            placeToReach = new Vector2(positionX, positionY+2);
+        }
+
+        if (direction.Equals(Vector2.down))
+        {
+            positionY -= nearPlayer;
+            placeToReach = new Vector2(positionX, positionY-2);
+
+        }
+
+        if (direction.Equals(Vector2.right))
+        {
+            positionX += nearPlayer;
+            placeToReach = new Vector2(positionX+2, positionY);
+        }
+
+        if (direction.Equals(Vector2.left))
+        {
+            positionX -= nearPlayer;
+            placeToReach = new Vector2(positionX-2, positionY);
+        }
+       
+        
         timeLeft = 3.0f;
         bomb = Instantiate(gameObject, new Vector3(positionX, positionY, 0), Quaternion.identity);
         listBomb.Add(new BombClazz(timeLeft, bomb));
+        bomb.GetComponent<Rigidbody2D>().AddForce(direction *1);
+        //bomb.GetComponent<Rigidbody2D>().velocity = direction * 5;
+     
     }
+
 
     private class BombClazz
     {

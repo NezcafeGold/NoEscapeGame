@@ -30,10 +30,21 @@ public class GameSceneManager : MonoBehaviour
         }
     }
 
-     void StartGameScene()
+    public void StartGameScene()
     {
         SceneManager.LoadScene("Game");
+        Time.timeScale = 1f;
     }
+     
+     public void MenuScene()
+     {
+         SceneManager.LoadScene("Menu");
+     }
+     
+     public void ExitScene()
+     {
+         Application.Quit();
+     }
 
      void Pause()
      {
